@@ -1,0 +1,28 @@
+{
+  "user": [
+    {
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "id": 1
+    },
+    {
+      "name": "Sahil",
+      "email": "Sahil@gmail.com",
+      "id": 2
+    }
+  ],
+  "articles": [
+    {
+      "title": "admin3",
+      "description": "admin3",
+      "uid": 1,
+      "id": 4
+    },
+    {
+      "title": "Sahil-Two",
+      "description": "Hello",
+      "uid": "2",
+      "id": 5
+    }
+  ]
+}
