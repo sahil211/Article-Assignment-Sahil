@@ -1,0 +1,27 @@
+
+<table>
+    <thead>
+      <h3><th>User List</th></h3>
+    </thead>
+    <ng-container *ngFor="let item of list1">
+      <!-- <tr *ngFor="let i of item.article"> -->
+    <tr>
+      <h4><td (click)="getDetails(item)">{{item.name}}</td></h4>
+      <!-- </tr> -->
+    </tr>
+    </ng-container>
+  </table>
+
+  <div [hidden]="!isShowDiv">
+    <h5>Name: <h6>{{name}}</h6></h5>
+    <h5>Email:<h6> {{email}}</h6></h5>
+    <!-- <h5>Articles: <h6><ol *ngFor="let item of article">
+        <li> {{item.title}} </li>
+    </ol></h6>
+    </h5> -->
+    <h5>Articles: <h6><ol *ngFor="let item of titles">
+      <li> {{item.title}} </li>
+  </ol></h6>
+  </h5>
+</div>
+  

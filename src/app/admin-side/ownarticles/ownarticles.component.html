@@ -1,0 +1,29 @@
+<!-- <div class="dashwrapper">
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Articles</th>
+          </thead>
+        <tr *ngFor="let item of userList">
+             <td>{{item.id}}</td> 
+            <td>{{item.name}}</td>
+            <td>{{ item.article.length }}</td>
+        </tr>
+    </table>    
+</div> -->
+<table>
+    <thead>
+      <th><h3>User List</h3></th>
+      <!-- <th><h3>Articles</h3></th> -->
+    </thead>
+    <tr *ngFor="let item of userList;let i=index">
+      <!-- <tr *ngFor="let i of item.article"> -->
+          <td><h4>{{item.name}}</h4></td>
+          <!-- <td><h4>{{counters[i].length}}</h4></td> -->
+          <td >&nbsp;<button class="btn btn-danger" style="height: fit-content;width: fit-content;" (click)="deleteUser(item.id)">Delete</button></td>
+      <!-- </tr> -->
+    
+    </tr>
+  </table>
+  
+ 

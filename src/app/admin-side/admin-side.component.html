@@ -1,0 +1,60 @@
+<button class="btn btn-primary" (click)="updateData()">Update Profile</button>
+&nbsp;
+<button class="btn btn-primary" (click)="openPopup()">Add Article</button>
+&nbsp;
+<button class="btn btn-primary" type="button" (click)="viewUser()">All Users</button>
+<h2>Article List</h2>
+<table>
+  <thead>
+    <th>Title</th>
+  </thead>
+  <ng-container *ngFor="let item of list">
+  <tr>
+    <td (click)="getDescription(item.description)"><h5>{{item.title}}</h5></td>&nbsp;
+    <td >&nbsp;<button class="btn btn-danger" style="height: fit-content;width: fit-content;" (click)="deleteArt(item.id)">Delete</button></td>
+    <td >&nbsp;<button class="btn btn-success" style="height: fit-content;width: fit-content;"(click)="updatePopup(item.id)">Update</button></td>
+  </tr>
+  </ng-container>
+</table>
+
+
+<div
+  class="modal-1"
+  tabindex="-1"
+  role="dialog-1"
+  id="updateModel"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog-1" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Update Article</h4>
+      </div>
+      <div class="modal-body">
+        <form [formGroup] ="addData">
+          <input type="hidden" value=""/>
+        <div class="form-group">
+            <label for="Title">Title</label>
+            <input
+              type="text"
+              formControlName="title"
+              class="form-control" >
+        </div>
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <input
+              type="text"
+              formControlName="description"
+              class="form-control" >
+      </div>
+      <div class="modal-footer">
+         <button type="submit" class="btn btn-danger"  
+                (click)="updateArticle(addData.value)">
+          Update
+         </button>
+      </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+

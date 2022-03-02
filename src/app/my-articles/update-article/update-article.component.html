@@ -1,0 +1,39 @@
+<!-- <button class="btn btn-primary" (click)="openPopup()">Add Article</button>  -->
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  id="addModel"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Article</h4>
+      </div>
+      <div class="modal-body">
+        <form [formGroup] ="addData">
+        <div class="form-group">
+            <label for="Title">Title</label>
+            <input
+              type="text"
+              formControlName="title"
+              class="form-control" >
+        </div>
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <input
+              type="text"
+              formControlName="description"
+              class="form-control" >
+      </div>
+      <div class="modal-footer">
+         <button type="submit" class="btn btn-danger"  
+                (click)="closePopup(addData.value)">
+          Add
+         </button>
+      </div>
+        </form>
+    </div>
+  </div>
+</div>
+</div>
