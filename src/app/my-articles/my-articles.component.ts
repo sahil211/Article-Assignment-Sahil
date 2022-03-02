@@ -83,9 +83,13 @@ export class MyArticlesComponent implements OnInit {
   }
   deleteAccount() {
     console.log(localStorage.getItem("userId"));
-    this.comserve.deleteArticleForUser(parseInt(localStorage.getItem("userId"))).subscribe((data:any) => {
-      console.log("Hey i received DATA: ", data);
-      alert("Artricles deleted")
+    this.comserve.getArticle().subscribe((data: any) => {
+      data.forEach((element:any) =>{
+        if(element.uid === localStorage.getItem("userId")){
+          this.comserve.deleteArticle(element.id).subscribe((data1:any) => {
+          })
+        }
+      })
     })
     this.comserve.deleteAccount(localStorage.getItem("userId")).subscribe((dat) => {
       alert("Your account and articles Deleted");
