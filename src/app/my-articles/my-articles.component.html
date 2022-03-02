@@ -1,5 +1,3 @@
-
-
 <button class="btn btn-primary" (click)="updateData()">Update Profile</button>
 &nbsp;
 <button class="btn btn-primary" (click)="openPopup()">Add Article</button>
@@ -11,52 +9,43 @@
     <th>Title</th>
   </thead>
   <!-- <ng-container *ngFor="let item of list  "> -->
-  <tr *ngFor="let item of list ">
-    <td (click)="getDescription(item.description)"><h5>{{item.title}}</h5></td>&nbsp;
-    <td >&nbsp;<button class="btn btn-danger" style="height: fit-content;width: fit-content;" (click)="deleteArt(item.id)">Delete</button></td>
-    <td >&nbsp;<button class="btn btn-success" style="height: fit-content;width: fit-content;"(click)="updatePopup(item.id)">Update</button></td>
+  <tr *ngFor="let item of list | paginate: {itemsPerPage:1,currentPage:p}; ">
+    <td (click)="getDescription(item.description)">
+      <h5>{{item.title}}</h5>
+    </td>&nbsp;
+    <td>&nbsp;<button class="btn btn-danger" style="height: fit-content;width: fit-content;"
+        (click)="deleteArt(item.id)">Delete</button></td>
+    <td>&nbsp;<button class="btn btn-success" style="height: fit-content;width: fit-content;"
+        (click)="updatePopup(item.id)">Update</button></td>
   </tr>
   <!-- </ng-container> -->
 </table>
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
 <p> {{ desc }} </p>
 
-<div
-  class="modal-1"
-  tabindex="-1"
-  role="dialog-1"
-  id="updateModel"
-  [ngStyle]="{'display':displayStyle1}">
-  <div class="modal-dialog-1" role="document">
+<div class="modal" tabindex="-1" role="dialog" id="updateModel" [ngStyle]="{'display':displayStyle1}">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Update Article</h4>
       </div>
       <div class="modal-body">
-        <form [formGroup] ="addData">
-          <input type="hidden" value=""/>
-        <div class="form-group">
+        <form [formGroup]="addData">
+          <input type="hidden" value="" />
+          <div class="form-group">
             <label for="Title">Title</label>
-            <input
-              type="text"
-              formControlName="title"
-              class="form-control" >
-        </div>
-        <div class="form-group">
+            <input type="text" formControlName="title" class="form-control">
+          </div>
+          <div class="form-group">
             <label for="Description">Description</label>
-            <input
-              type="text"
-              formControlName="description"
-              class="form-control" >
-      </div>
-      <div class="modal-footer">
-         <button type="submit" class="btn btn-danger"  
-                (click)="updateArticle(addData.value)">
-          Update
-         </button>
-      </div>
+            <input type="text" formControlName="description" class="form-control">
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-danger" (click)="updateArticle(addData.value)">
+              Update
+            </button>
+          </div>
         </form>
+      </div>
     </div>
   </div>
-</div>
-

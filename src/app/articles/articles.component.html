@@ -1,4 +1,5 @@
 <button (click)="getDetails()" >User Profile</button>
+<div class="">
 <h2>Article List</h2>
 <table>
   <thead>
@@ -6,10 +7,13 @@
   </thead>
   <!-- <ng-container *ngFor="let item of list"> -->
     <tr *ngFor="let i of list | paginate: {itemsPerPage:2,currentPage:p};">
-      <td (click)="getDescription(i.description)">{{i.title}}</td>
+      <!-- <td (click)="getDescription(i.description)">{{i.title}}</td> -->
+      <td>{{i.title}}</td>
+      <td (click)="getDescription(i.description)">&nbsp;<button class="btn btn-success" style="height: fit-content;width: fit-content;"
+       >Read More</button></td>
     </tr>
   <!-- </ng-container> -->
-  
 </table>
+</div>
 <p> {{ desc }} </p>
 <pagination-controls (pageChange)=" p= $event"></pagination-controls>
