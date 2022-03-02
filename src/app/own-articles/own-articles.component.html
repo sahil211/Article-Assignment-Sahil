@@ -3,14 +3,14 @@
       <th><h3>User List</h3></th>
       <th><h3>Articles</h3></th>
     </thead>
-    <!-- <tr *ngFor="let item of userList ; let i=index"> -->
-      <tr *ngFor="let item of userList  ">
-        <div *ngFor="let i of index | paginate: { itemPerPage : 2, currentPage : p} ;">
+    <tr *ngFor="let item of userList ; let i=index"> 
+      <!-- <tr *ngFor="let item of userList  ">
+        <div *ngFor="let i of index | paginate: { itemPerPage : 2, currentPage : p} ;"> -->
       <!-- <tr *ngFor="let i of item.article"> -->
           <td><h4>{{item.name}}</h4></td>
           <td><h4>{{counters[i].length}}</h4></td>
       <!-- </tr> --> 
-    </div>
+    <!-- </div> -->
     </tr>
   </table>
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
