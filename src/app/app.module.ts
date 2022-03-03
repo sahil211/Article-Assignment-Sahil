@@ -20,6 +20,10 @@ import { OwnarticlesComponent } from './admin-side/ownarticles/ownarticles.compo
 import { AddarticleComponent } from './admin-side/addarticle/addarticle.component';
 import { Ng2OrderModule } from 'ng2-order-pipe'; 
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -47,9 +51,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatTableModule,
     FormsModule,
     Ng2OrderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
+    AkitaNgRouterStoreModule
   ],
-  providers: [],
+  providers: [{ provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' }}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
